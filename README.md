@@ -1,4 +1,4 @@
-Movie-Comperator
+Movie-Comparerator
 ================
 
 Find similarities between multiple films or cast & crew. Takes two (eventually, two or more) movies and returns what actors they have in common.
