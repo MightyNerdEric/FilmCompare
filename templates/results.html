@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+	<h1>{{ link1 }} and {{ link2 }} share:</h1>
+	<p>
+		{{ my_results }}
+	</p>
+	<a href="{{ url_for('home') }}">Try again</a>
+{% endblock %}

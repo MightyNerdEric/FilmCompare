@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+	<h1>The Film Comperator</h1>
+	<form method="post" action="{{ url_for('submit') }}">
+		<p><label>Search 1:</label> <input type="text" name="link1" required></p>
+		<p><label>Search 2:</label> <input type="text" name="link2" required></p>
+		<p><button type="submit">Compare!</button></p>
+	</form>
+{% endblock %}
