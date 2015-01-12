@@ -13,9 +13,7 @@ from collections import OrderedDict
 #BASE_URL = "http://www.imdb.com"
 
 #time.sleep(1) for 1 second delay
-
-#response = requests.get(BASE_URL + "/title/tt0103359/fullcredits?ref_=tt_cl_sm#cast")
-
+#time.sleep(1) for 1 second delay
 
 def compare(search_type, link1, link2):
 	#title1 = raw_input("Enter full URL for title1: ")
@@ -34,11 +32,8 @@ def compare(search_type, link1, link2):
 	else:
 		return "Error: incorrect or no search type specified"
 
-	dups = find_dups(results1, results2)
-	
-	return get_titles(dups, dic1)
-#	for title in titles:
-#		print title
+	#dups = find_dups(results1, results2, dic1)
+	return find_dups(results1, results2, dic1)
 
 def get_actor_links(url):
 	html = requests.get(url)
@@ -66,13 +61,15 @@ def get_movie_links(url):
 	dic = dict(zip(links, names))
 	return list(OrderedDict.fromkeys(links))
 
-def find_dups(list1, list2):
-	dups = []	
+def find_dups(list1, list2, dict0):
+	duptitles = []
+	duplinks = []
 	# This can be improved in any number of ways. They're ordered lists, after all!
 	for link in list1:
 		if link in list2:
-			dups.append(link)
-	return dups
+			duptitles.append(link)
+			duplinks.append(dict0[link])
+	return dict(zip(duptitles,duplinks))
 
 def get_titles(dups, dic):
 	titles = []

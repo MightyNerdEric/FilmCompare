@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
-	<h1>{{ link1 }} and {{ link2 }} share:</h1>
 	<p>
-		{{ my_results }}
+		{% for link, title in my_results.items() %}
+			<li><a href="http://www.imdb.com{{ link }}">{{ title }}</a></li>
+		{% endfor %}
 	</p>
 	<a href="{{ url_for('home') }}">Try again</a>
 {% endblock %}
