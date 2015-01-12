@@ -38,6 +38,16 @@ def compare(search_type, link1, link2):
 def get_actor_links(url):
 	html = requests.get(url)
 	soup = BeautifulSoup(html.text, "lxml")
+	'''
+	curline = soup.find("h4", "dataHeaderWithBorder")
+	i = 1
+	myh4s = soup.find_all("h4", "dataHeaderWithBorder")
+	while i < len(myh4s):
+		while curline != myh4s[i]:
+			curline = curline.next_element
+			if curline in #Okay, this is the point at which you need to make a better
+			              # script. But this is a basic way to run through the elements.
+	'''
 	credits = soup.find("div", "header") # Not working; all links are returned 
 	links = [a.attrs.get('href') for a in credits.select('tr a[href^=/name]')]
 	names = [a.get_text() for a in credits.select('tr a[href^=/name]')]
